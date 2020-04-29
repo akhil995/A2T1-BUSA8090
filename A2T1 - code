@@ -1,0 +1,76 @@
+Question 1 :-
+1a) code :- awk '$2 < 1000 { print $1,$2}' expression.tab
+1b) code:-  awk -F"\t" 'NR == 1 {print; next} $2~/ase/ {print $1,$2,$3}' annotation.tab
+1c) code:-  awk -F"\t" 'NR == 1 {print; next} $3~/(Purine|Pyrimidine) biosynthesis/ {print $0}' annotation.tab
+
+Question 2 :- 
+
+2a)
+
+#below mentioned code should be executed in ubuntu/ aws instance 
+
+$wget https://downloads.mysql.com/docs/world_x-db.zip
+
+$sudo apt-get install unzip
+
+$unzip world_x-db.zip
+
+$sudo mysql
+
+#below mentioned code should be executed in mysql 
+
+> create databases world_x ;
+
+> use dtabase world_x;
+
+> source world_x-db/world_x;
+
+> show tables;
+
+
+
+
+2b ) The code should be executed in mysql
+
+code :-  
+
+mysql> Select b.name as country, a.percentage, c.name as capital
+    -> from countrylanguage a inner join country b on a.countrycode=b.code
+    -> inner join city c on b.capital=c.id
+    > where a.percentage>50 and Language ="English"; 
+
+
+
+
+Question 3: The following command should be executed in r-studio
+
+database link:- https://github.com/akhil995/A2T1-BUSA8090/blob/master/whocovid19deathdata2020.csv
+
+code:- 
+
+#loading librares before performing operations 
+library(tidyverse)
+library(ggplot2)
+
+#plotting the data 
+
+ggplot(data = death_data, aes(reorder(country,deaths), deaths, fill=as.factor(deaths)))+
+  geom_col()+
+  theme(panel.background = element_blank())+
+  theme(panel.grid.major.x = element_line(colour = "light blue"))+
+  coord_flip(clip = "off", expand = FALSE)+
+  guides(fill = FALSE)+
+  labs(title =" COVID-19 Deaths By Countries", subtitle = "WHO national authorities by 28 April 2020", y = "Total deaths by country", x="Country")
+
+
+
+
+
+
+               
+
+
+
+
+
+
